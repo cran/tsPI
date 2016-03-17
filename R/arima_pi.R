@@ -33,16 +33,18 @@
 #' @return a list containing the prediction intervals.
 #'  @references
 #' \enumerate{
-#' \item{Helske, J. and Nyblom, J. (2013). Improved frequentist prediction
+#' \item{Helske, J. and Nyblom, J. (2015). Improved frequentist prediction
 #' intervals for autoregressive models by simulation.
 #' In Siem Jan Koopman and Neil Shephard, editors,
-#' Unobserved Components and Time Series Econometrics. Oxford University Press. In press.}
+#' Unobserved Components and Time Series Econometrics. Oxford University Press.
+#' \url{http://urn.fi/URN:NBN:fi:jyu-201603141839}}
 #'  \item{Helske, J. and Nyblom, J. (2014). Improved frequentist prediction intervals for
 #'  ARMA models by simulation.
 #'  In Johan Knif and Bernd Pape, editors,
 #' Contributions to Mathematics, Statistics, Econometrics, and Finance:
 #' essays in honour of professor Seppo Pynnönen,
-#' number 296 in Acta Wasaensia, pages 71–86. University of Vaasa.}
+#' number 296 in Acta Wasaensia, pages 71--86. University of Vaasa.
+#' \url{http://urn.fi/URN:NBN:fi:jyu-201603141836}}
 #' }
 #' @examples
 #'
@@ -178,11 +180,11 @@ arima_pi <- function(x, order, xreg = NULL, n_ahead = 1, level = 0.95, median = 
       }
       if (se_limits) {
         out[j, "se_lwr"] <-
-          sqrt(sum((nz_w * ((1 - level) / 2 - pnorm(q = out[j, 1], nz_ex, nz_sdx)))^2) / (nsim - 1)) /
-          (sum(nz_w * dnorm(x = out[j, 1], nz_ex, nz_sdx)/sqrt(nsim)))
+          sqrt(sum((nz_w * ((1 - level) / 2 - pnorm(q = out[j, "lwr"], nz_ex, nz_sdx)))^2) / (nsim - 1)) /
+          (sum(nz_w * dnorm(x = out[j, "lwr"], nz_ex, nz_sdx)/sqrt(nsim)))
         out[j, "se_upr"] <-
-          sqrt(sum((nz_w * ((1 - level) / 2 - pnorm(q = out[j, 2], nz_ex, nz_sdx)))^2) / (nsim - 1)) /
-          (sum(nz_w * dnorm(x = out[j, 2], nz_ex, nz_sdx)/sqrt(nsim)))
+          sqrt(sum((nz_w * (1 - (1 - level) / 2 - pnorm(q = out[j, "upr"], nz_ex, nz_sdx)))^2) / (nsim - 1)) /
+          (sum(nz_w * dnorm(x = out[j, "upr"], nz_ex, nz_sdx)/sqrt(nsim)))
       }
     }
   } else stop("NA values in weights.")
