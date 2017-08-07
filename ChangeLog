@@ -1,3 +1,9 @@
+Changes from version 1.0.2 to 1.0.3:
+  * Fixed a bug which made pure MA models to throw an error.
+
+Changes from version 1.0.1 to 1.0.2:
+  * Corrected citations.
+
 Changes from version 1.0.0 to 1.0.1:
   * Corrected the computation of the standard errors for prediction limits.
   * Changed testthat tests due to changes in testthat package.
