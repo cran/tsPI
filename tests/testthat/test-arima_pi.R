@@ -19,7 +19,9 @@ test_that("output of arima_pi is of correct size and form",{
   y <- ts(rnorm(10), start = 2000, frequency = 12)
   pred <- arima_pi(y, order = c(1, 0, 0), n_ahead = 5, nsim = 50)
   expect_identical(dim(pred), c(5L, 5L))
-  expect_identical(class(pred), c("mts", "ts", "matrix"))
+  expect_s3_class(pred, "mts")
+  expect_s3_class(pred, "ts")
+  expect_s3_class(pred, "matrix")
   expect_identical(frequency(pred), frequency(y))
   expect_identical(start(pred), end(y)+c(0, 1))
 })
@@ -64,7 +66,7 @@ test_that("arima_pi with jeffreys gives same results each time",{
 
 test_that("pure MA model works",{
   set.seed(1)
-  pred <- arima_pi(lh, c(0, 0, 1), nsim = 50)
+  expect_error(pred <- arima_pi(lh, c(0, 0, 1), nsim = 50), NA)
 })
 test_that("white noise gives error",{
   expect_error(arima_pi(lh, c(0, 1, 0), nsim = 50))
