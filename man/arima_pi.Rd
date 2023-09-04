@@ -4,10 +4,23 @@
 \alias{arima_pi}
 \title{Prediction Intervals for ARIMA Processes with Exogenous Variables Using Importance Sampling}
 \usage{
-arima_pi(x, order, xreg = NULL, n_ahead = 1, level = 0.95,
-  median = TRUE, se_limits = TRUE, prior = "uniform", custom_prior,
-  custom_prior_args = NULL, nsim = 1000, invertibility = FALSE,
-  last_only = FALSE, return_weights = FALSE, ...)
+arima_pi(
+  x,
+  order,
+  xreg = NULL,
+  n_ahead = 1,
+  level = 0.95,
+  median = TRUE,
+  se_limits = TRUE,
+  prior = "uniform",
+  custom_prior,
+  custom_prior_args = NULL,
+  nsim = 1000,
+  invertibility = FALSE,
+  last_only = FALSE,
+  return_weights = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{vector containing the time series}
@@ -54,14 +67,14 @@ a list containing the prediction intervals.
 intervals for autoregressive models by simulation.
 In Siem Jan Koopman and Neil Shephard, editors,
 Unobserved Components and Time Series Econometrics. Oxford University Press.
-\url{http://urn.fi/URN:NBN:fi:jyu-201603141839}}
+\url{https://urn.fi/URN:NBN:fi:jyu-201603141839}}
  \item{Helske, J. and Nyblom, J. (2014). Improved frequentist prediction intervals for
  ARMA models by simulation.
  In Johan Knif and Bernd Pape, editors,
 Contributions to Mathematics, Statistics, Econometrics, and Finance:
 essays in honour of professor Seppo Pynnönen,
 number 296 in Acta Wasaensia, pages 71--86. University of Vaasa.
-\url{http://urn.fi/URN:NBN:fi:jyu-201603141836}}
+\url{https://urn.fi/URN:NBN:fi:jyu-201603141836}}
 }
 }
 \description{
@@ -89,4 +102,3 @@ ts.plot(ts.union(x,pred_arima, pred[,1:3]), col = c(1,2,2,2,3,3,3),
 \seealso{
 \code{\link{tsPI}}, \code{\link{struct_pi}}
 }
-

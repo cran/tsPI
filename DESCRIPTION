@@ -1,8 +1,8 @@
 Package: tsPI
 Title: Improved Prediction Intervals for ARIMA Processes and Structural
         Time Series
-Version: 1.0.3
-Date: 2019-12-05
+Version: 1.0.4
+Date: 2023-09-04
 Author: Jouni Helske
 Maintainer: Jouni Helske <jouni.helske@iki.fi>
 Imports: KFAS
@@ -20,7 +20,7 @@ License: GPL-3
 NeedsCompilation: yes
 Encoding: UTF-8
 BugReports: https://github.com/helske/tsPI/issues
-RoxygenNote: 5.0.1
-Packaged: 2019-12-05 09:06:53 UTC; jovetale
+RoxygenNote: 7.2.3
+Packaged: 2023-09-04 10:18:19 UTC; jvhels
 Repository: CRAN
-Date/Publication: 2019-12-05 09:40:02 UTC
+Date/Publication: 2023-09-04 11:00:02 UTC
